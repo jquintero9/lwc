@@ -7,6 +7,14 @@
 
 body, html {
 	font-size: 16px;
-	background-color: blue;
+<<<<<<< HEAD
+	background-color: yellow;
 	color: #FFF;
+	text-align: center;
 }
+=======
+	background-color: red;
+	color: #FFF;
+	text-align: center;
+}
+>>>>>>> 1d5e7cdff358d75ed94a129b26a98029ac502f99
