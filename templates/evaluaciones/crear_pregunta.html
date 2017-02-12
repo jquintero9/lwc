@@ -1,0 +1,127 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Crear Pregunta - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="mensaje {{tipo_mensaje}}">{{message}}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="contenedor"><h2 class="titulo_pregunta">Crear Test</h2></div>
+    <div id="contenedor_formulario" class="contenedor">
+        <form method="POST" action=""> {% csrf_token %}
+            <!-- Formulario Test -->
+            {% if form_test.nombre.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_test.nombre.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Nombre:</b></label></div>
+                <input type="hidden" name="tipo" value="Kolb" />
+                <input type="hidden" name="estado" value="Ninguno" />
+                {{form_test.nombre}}
+            </div>
+            <!-- Formulario Pregunta -->
+            {% if form_pregunta.pregunta.errors %}
+                <div class="mensaje-formulario">
+                {% for error in form_pregunta.pregunta.errors %}
+                    {{error}}
+                {% endfor %}
+                </div>
+            {% endif %}
+            <div class="contenedor_input">
+                <div><label><b>Pregunta:</b></label></div>
+                {{form_pregunta.pregunta}}
+            </div>
+        <div id="contenedor_respuestas" class="contenedor">
+            <h3>Respuestas: Estilos de Aprendizaje</h3>
+            {% if form_respuestas.respuesta_ec.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_ec.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Experiencia Concreta (EC):</b>: </label></div>
+                {{form_respuestas.respuesta_ec}}
+            </div>
+            {% if form_respuestas.respuesta_or.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_or.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Observación Reflexiva(OR):</b>: </label></div>
+                {{form_respuestas.respuesta_or}}
+            </div>
+            {% if form_respuestas.respuesta_ca.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_ca.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Conceptualización Abstracta(CA):</b>: </label></div>
+                {{form_respuestas.respuesta_ca}}
+            </div>
+            {% if form_respuestas.respuesta_ea.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_ea.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Experimentación Activa(EA):</b>: </label></div>
+                {{form_respuestas.respuesta_ea}}
+            </div>
+        </form>
+    </div>
+
+
+    {% if not kolb %}
+    <section class="contenedor">
+        <p>Antes de comenzar debes seleccionar el tipo de pregunta, para saber que tipo de respuestas van a ser creadas.</p>
+    </section>
+    <div id="form_tipo_pregunta" class="contenedor">
+        <form id="form-tipo-pregunta" action="" method="POST"> {% csrf_token %}
+            <input type="hidden" name="tipo_form" value="tipo_pregunta" />
+            <div class="contenedor-input">
+                <label><b>Tipo de Pregunta:</b></label>
+                {{form_tipo_pregunta.tipo_pregunta}}
+            </div>
+            <div class="contenedor_boton_enviar">
+                <input id="boton_enviar" class="input" type="submit" value="Enviar" />
+            </div>
+        </form>
+    </div>
+    {% endif %}
+
+    {% if form_respuestas and form_pregunta %}
+    <form method="POST" action=""> {% csrf_token %}
+        <input type="hidden" name="tipo_form" value="crear_pregunta" />
+        <input type="hidden" name="tipo-pregunta" value="{{tipo_pregunta}}" />
+        <div id="contenedor_pregunta" class="contenedor">
+            <h3>Pregunta de tipo: {{tipo_pregunta}}</h3>
+            {% include 'evaluaciones/formulario_preguntas.html' %}
+       </div>
+    </form>
+    {% endif %}
+
+    <!--<script src="{% static 'js/crear_pregunta.js' %}"></script>-->
+{% endblock %}

@@ -1,0 +1,40 @@
+
+#estilos-aprendizaje {
+    margin-bottom: 32px;
+}
+
+.contenedor {
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 2px #DDD;
+    margin: 0.5em auto;
+    padding: 1%;
+    width: 90%;
+}
+
+h2 {
+    text-align: center;
+}
+
+#contenedor_boton_crear {
+    margin-bottom: 64px;
+}
+
+.boton {
+    border: 1px solid #555;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #DDD;
+    color: #555;
+    margin: 0.25em auto;
+    padding: 1%;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    width: 10%;
+    transition-duration: 0.6s;
+}
+
+.boton:hover {
+    background-color: #555;
+    color: #FFF;
+}

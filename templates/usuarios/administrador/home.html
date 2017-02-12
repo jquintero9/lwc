@@ -1,0 +1,51 @@
+{% extends 'usuarios/base-usuarios.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/mensajes.css' %}">
+{% endblock %}
+{% block title %}Home - Admin{% endblock %}
+
+{% block infousuario %}
+<p>Bienvenido:  <b>{{request.user.username}}</b></p>
+<p>Rol: Administrador</p>
+{% endblock %}
+
+{% block useroptions %}
+<li class="drop-button">
+	<a href="#" class="a-drop-button">Test</a>
+	<div class="drop-content">
+		<a class="a-drop" href="{% url 'evaluaciones:kolb' %}">Kolb</a>
+		<a class="a-drop" href="#">Johari</a>
+	</div>
+</li>
+<li class="drop-button">
+	<a href="#" class="a-drop-button">Crear</a>
+	<div class="drop-content">
+		<a class="a-drop" href="{% url 'usuarios:admin_crear_usuario' %}">Usuario</a>
+		<a class="a-drop" href="{% url 'usuarios:crear_institucion' %}">Institución</a>
+		<a class="a-drop" href="{% url 'usuarios:crear_grupo' %}">Grupo</a>
+		<a class="a-drop" href="{% url 'evaluaciones:crear_pregunta' %}">Pregunta</a>
+	</div>
+</li>
+<li class="drop-button">
+	<a href="#" class="a-drop-button">Ver</a>
+	<div class="drop-content">
+		<a  class="a-drop" href="{% url 'usuarios:admin_lista_estudiantes' %}">Estudiantes</a>
+		<a  class="a-drop" href="{% url 'usuarios:admin_lista_instituciones' %}">Instituciones</a>
+		<a  class="a-drop" href="{% url 'usuarios:admin_lista_grupos' %}">Grupos</a>
+		<a  class="a-drop" href="{% url 'usuarios:admin_lista_psicologos' %}">Psicólogos</a>
+		<a  class="a-drop" href="{% url 'evaluaciones:lista_preguntas' %}">Preguntas</a>
+	</div>
+</li>
+<li class="drop-button">
+    <a href="#" class="a-drop-button">Opciones</a>
+    <div class="drop-content">
+        <a class="a-drop" href="{% url 'usuarios:admin_perfil' %}">Ver Perfil</a>
+        <a class="a-drop" href="{% url 'usuarios:cerrar_sesion' %}">Cerrar Sesión</a>
+    </div>
+</li>
+{% endblock %}
+
+{% block content %}
+{% include 'usuarios/mensajes.html' %}
+{% endblock %}

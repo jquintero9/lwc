@@ -1,0 +1,9 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/eliminar_usuario.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'usuarios/eliminar_usuario.html' %}
+{% endblock %}

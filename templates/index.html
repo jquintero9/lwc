@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Psychology Test</title>
+    <meta name="description" content="En este sitio podrás resolver test psicólogicos, entre ellos el test de Kolb" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://file.myfontastic.com/UvFACRzNhY85rtfcRWSKoR/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+<!--header-->
+<header id="header" class="header-transparente ">
+   <div id="menu-header" class="col-sm-12">
+       <nav id="menu-navegacion-header" class="">
+           <!--Menú Responsive-->
+            <ul>
+                <li><a href="#section-test" class="normal icon-paper">TEST</a></li>
+                <li><a href="#section-usuarios" class="normal icon-usuarios">USUARIOS</a></li>
+                <li><a href="#footer-contacto" class="normal icon-contacto">CONTACTO</a></li>
+                <li><a href="{% url 'usuarios:autenticarse' %}" class="normal icon-sign-in">LOGIN</a></li>
+            </ul>
+        </nav>
+   </div>
+    <div id="contenedor-header">
+        <h1 id="logo-header" class="logo col-wd-4 col-md-5 col-sm-10"><a href="{% url 'index' %}" class="normal">Psychology Test</a></h1>
+        <nav id="navegacion-header" class="col-wd-8 col-md-7">
+            <ul>
+                <li><a href="#section-test" class="normal icon-paper">TEST</a></li>
+                <li><a href="#section-usuarios" class="normal icon-usuarios">USUARIOS</a></li>
+                <li><a href="#footer-contacto" class="normal icon-contacto">CONTACTO</a></li>
+                <li><a href="{% url 'usuarios:autenticarse' %}" class="normal icon-sign-in">LOGIN</a></li>
+            </ul>
+        </nav>
+        <div id="boton-menu" class="col-sm-2">
+            <span class="icon-list"></span>
+        </div>
+    </div>
+</header>
+<!--fin header-->
+<!--banner-->
+<section id="banner">
+    <!--slider-->
+    <ul id="slider">
+        <li class="current-slide">
+            <div class="info-banner">
+                <h3>Bienvenido a Psychology Test</h3>
+                <p>Para entrar al sitio y comenzar a resolver test, debes estar registrado.</p>
+                <a id="boton-registro-banner" class="boton" href="{% url 'usuarios:registrarse' %}">Registrate</a>
+            </div>
+            <img src="{% static 'imgs/1.png' %}" alt="">
+        </li>
+        <li>
+            <div class="info-banner">
+                <h3>Tipos de usuarios en Psychology Test</h3>
+                <p>
+                    En Psychology Test existen dos tipos de usuarios: <b>Psicólogo y Estudiante.</b>
+                    Cada uno tiene un rol diferente.
+                </p>
+                <a href="#section-usuarios" id="boton-usuarios-Banner" class="boton">Usuarios</a>
+            </div>
+            <img src="{% static 'imgs/3.png' %}" alt="">
+        </li>
+        <li>
+            <div class="info-banner">
+                <h3>Pruebas a realizar en Psychology Test</h3>
+                <p>
+                    Psychology Test cuenta con varios test psicológicos entre ellos: <b>El test de Kolb y Ventana de Johari.</b>
+                </p>
+                <a href="#section-test" id="boton-test-banner" class="boton">Test</a>
+            </div>
+            <img src="{% static 'imgs/4.png' %}" alt="">
+        </li>
+    </ul>
+    <!--fin slider-->
+    <!--controlador slider (botones)-->
+    <ul id="controlador-slider">
+        <li class="active controller"></li>
+        <li class="controller"></li>
+        <li class="controller"></li>
+    </ul>
+    <!--fin controlador slider-->
+</section>
+<!--fin banner-->
+<!--Sección de contenido-->
+<div id="section-contenido" class="row">
+    <!--Section test-->
+    <section id="section-test" class="seccion">
+        <section id="test-kolb" class="article-test">
+            <h2 class="icon-paper titulo-seccion">Test de Kolb</h2>
+            <p>
+                El inventario de estilos de aprendizaje de Kolb permite al estudiante identificar características personales de la forma en cómo procesa la información.
+            </p>
+            <p>
+                Los 4 estilos de aprendizaje que se establecen en este inventario se caracterizan por identificar desde un estilo activo hasta uno reflexivo así como en las preferencias en el abordaje de la información que van de lo concreto a lo abstracto.
+            </p>
+            <p>
+                Los estilos de aprendizaje son modificables con el tiempo y de acuerdo a las experiencias vividas.
+                En la mayoría de las ocasiones no se tiene un estilo de aprendizaje absoluto sino que se comparte una inclinación por varios de los estilos y la persona se desplaza entre los mismos de acuerdo a la tarea asignada.
+                Motivo por el cual usted puede compartir características del resto de los estilos. 
+            </p>
+            <p>
+                Los resultados de este test le servirán para conocer sus potencialidades en un proceso de aprendizaje y así aprovecharlas para alcanzar los resultados de aprendizaje planteados.
+            </p>
+            <h3 class="subtitulo-seccion">Estilos de Aprendizaje</h3>
+            <section id="section-estilos-aprendizaje">
+                <article class="article-aprendizaje col-sm-12 col-wd-6">
+                    <h4>Acomodador (Los Prágmaticos)</h4>
+                    <img src="{% static 'imgs/img-acomodador.png' %}" />
+                    <p>
+                        Se desempeña mejor en la <b>experiencia concreta (EC)</b> y la <b>experimentación activa (EA)</b>.
+                        Su punto más fuerte reside en hacer cosas e involucrarse en experiencias nuevas.
+                        Suele arriesgarse más que las personas de los otros tres estilos de aprendizaje.
+                    </p>
+                    <p>
+                        Se le llama “acomodador” porque se destaca en situaciones donde hay que adaptarse a circunstancias inmediatas específicas.
+                        Es pragmático, en el sentido de descartar una teoría sobre lo que hay que hacer, si ésta no se aviene con los “hechos”.
+                        El acomodador se siente cómodo con las personas, aunque a veces se impacienta y es “atropellador”.
+                    </p>
+                </article>
+                <article class="article-aprendizaje col-sm-12 col-wd-6">
+                    <h4>Convergente (Los Reflexivos)</h4>
+                    <img src="{% static 'imgs/img-convergente.png' %}" />
+                    <p>
+                        Su punto más fuerte reside en la aplicación práctica de las ideas. Esta persona se desempeña mejor en las pruebas que requieren una sola respuesta o solución concreta para una pregunta o problema.
+                        Organiza sus conocimientos de manera que se pueda concretar en resolver problemas usando razonamiento hipotético deductivo.
+                    </p>
+                    <p>
+                        Estas personas se orientan más a las cosas que a las personas. Tienden a tener menos intereses por la materia física y se orientan a la especialización científica.
+                    </p>
+                </article>
+                <article class="article-aprendizaje col-sm-12 col-wd-6">
+                    <h4>Divergente (Los Activos)</h4>
+                    <img src="{% static 'imgs/img-divergente.png' %}" />
+                    <p>
+                        Se desempeña mejor en cosas concretas (EC) y la observación reflexiva (OR).
+                        Su punto más fuerte es la capacidad imaginativa. Se destaca porque tiende a considerar situaciones concretas desde muchas perspectivas.
+                        Se califica este estilo como “divergente” porque es una persona que funciona bien en situaciones que exigen producción de ideas (como en la “lluvia de ideas”).
+                    </p>
+                </article>
+                <article class="article-aprendizaje col-sm-12 col-wd-6">
+                    <h4>Asimilador (Los Teóricos)</h4>
+                    <img src="{% static 'imgs/img-asimilador.png' %}" />
+                    <p>
+                        Predomina en esta persona la <b>conceptualización abstracta (CA)</b> y la <b>observación reflexiva (OR)</b>
+                        Su punto más fuerte lo tiene en la capacidad de crear modelos teóricos. Se caracteriza por un razonamiento inductivo y poder juntar observaciones dispares en una explicación integral.
+                        Se interesa menos por las personas que por los conceptos abstractos, y dentro de éstos prefiere lo teórico a la aplicación práctica. Suele ser un científico o un investigador.
+                    </p>
+                </article>
+            </section>
+        </section>
+    </section>
+    <!--fin Section test -->
+    <!--Section Usuarios-->
+    <section id="section-usuarios" class="seccion">
+        <h2 class="titulo-seccion icon-usuarios">Usuarios</h2>
+        <article class="article-usuario">
+            <h3 class="subtitulo-seccion">Psicólogo</h3>
+            <p>
+                Es el profesional de la psicología cuyo objetivo de trabajo es la reflexión e intervención sobre el comportamiento humano, en situaciones educativas, mediante el desarrollo de las capacidades de las personas, grupos e instituciones. Se entiende el término educativo en el sentido más amplio de formación y desarrollo personal y colectivo.
+            </p>
+            <p>
+                Psychology Test permite a los usuarios psicólogo:
+            </p>
+            <div class="columna-usuarios col-wd-6">
+                <h4 class="h4-usuarios icon-trabajo">Asignar Test:</h4>
+                <p>
+                    Los psicólogos tienen asignados grupos de distintas instituciones. El psicólogo tiene la capacidad de asignar test a los estudiantes que pertenescan a sus grupos asignados.
+                </p>
+            </div>
+            <div class="columna-usuarios col-wd-6">
+                <h4 class="h4-usuarios icon-test">Diagnosticar Test:</h4>
+                <p>
+                    Los psicólogos pueden acceder a su lista de grupos asignados y diaganosticar cada uno de los test que hallan reliazado los estudiantes. Además Psychology Test permite hacer un seguimiento más detallado al proceso de los estudiantes, brindado la posibilidad de hacer comentarios de una manera especifica a cada estudiante.
+                </p>
+            </div>
+        </article>
+        <article class="article-usuario">
+            <h3 class="subtitulo-seccion">Estudiante</h3>
+            <p>
+                El usuario estudiante es quien resuelve los test que son asignados por parte de los psicólogos.
+            </p>
+            <p>
+                Mediante el diagnostico realizado por los psicólogos los estudiantes pueden conocer más acerca de sus capacidades de aprendizaje, saber que tipo de aprendizaje desempeñan cuando están aprendiendo. Cuando el estudiante conoce el tipo de aprendizaje que maneja, puede mejorar aun más en su desempeño academico.
+            </p>
+        </article>
+    </section>
+    <!--fin Section Usuarios-->
+    <!--Section Contacto-->
+    <footer id="footer-contacto">
+        <h2 class="h2-footer icon-contacto">Contacto</h2>
+        <div class="columna-footer col-wd-6">
+            <div><span class="icon-email">jhjaquintero@gmail.com</span></div>
+            <div><a href="//www.facebook.com/jhon.quintero.9619" class="icon-facebook">Facebook</a></div>
+        </div>
+        <div class="columna-footer col-wd-6"></div>
+    </footer>
+    <div class="col-wd-8 eje"></div>
+</div>
+<!--fin Section contenido-->
+<!--libreria jQuery-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static 'js/slider.js' %}"></script>
+</body>
+</html>
+
+

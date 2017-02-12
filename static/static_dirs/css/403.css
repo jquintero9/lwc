@@ -1,0 +1,24 @@
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    font-size: 32px;
+    font-family: sans-serif;
+    background-color: #555;
+    color: #FFF;
+}
+
+#contenedor-mensaje {
+    margin: 128px auto;
+    padding: 1%;
+    text-align: center;
+    width: 90%;
+}
+
+h1 {
+    margin: 32px auto;
+}

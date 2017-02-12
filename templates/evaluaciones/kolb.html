@@ -1,0 +1,63 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Test de Kolb - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/kolb.css' %}" />
+{% endblock %}
+
+{% block content %}
+<h2>Test de Kolb</h2>
+<section id="introduccion" class="contenedor">
+    <h3>Introducción</h3>
+    <article>
+        <p>
+            El inventario de estilos de aprendizaje de Kolb permite al estudiante identificar características personales de la forma en cómo procesa la información.
+            Los 4 estilos de aprendizaje que se establecen en este inventario se caracterizan por identificar desde un estilo activo hasta uno reflexivo así como en las preferencias en el abordaje de la información que van de lo concreto a lo abstracto.
+            Los estilos de aprendizaje son modificables con el tiempo y de acuerdo a las experiencias vividas.
+            En la mayoría de las ocasiones no se tiene un estilo de aprendizaje absoluto sino que se comparte una inclinación por varios de los estilos y la persona se desplaza entre los mismos de acuerdo a la tarea asignada.
+            Motivo por el cual usted puede compartir características del resto de los estilos. Los resultados de este test le servirán para conocer sus potencialidades en un proceso de aprendizaje y así aprovecharlas para alcanzar los resultados de aprendizaje planteados.
+        </p>
+    </article>
+</section>
+<section id="estilos-aprendizaje">
+    <article class="contenedor">
+        <h3>Estilos de Aprendizaje</h3>
+        <h4>Acomodador (Los Prágmaticos)</h4>
+        <p>
+            Se desempeña mejor en la <b>experiencia concreta (EC)</b> y la <b>experimentación activa (EA)</b>.
+            Su punto más fuerte reside en hacer cosas e involucrarse en experiencias nuevas.
+            Suele arriesgarse más que las personas de los otros tres estilos de aprendizaje.
+            Se le llama “acomodador” porque se destaca en situaciones donde hay que adaptarse a circunstancias inmediatas específicas.
+            Es pragmático, en el sentido de descartar una teoría sobre lo que hay que hacer, si ésta no se aviene con los “hechos”.
+            El acomodador se siente cómodo con las personas, aunque a veces se impacienta y es “atropellador”.
+        </p>
+    </article>
+    <article class="contenedor">
+        <h4>Convergente (Los Reflexivos)</h4>
+        <p>
+            Su punto más fuerte reside en la aplicación práctica de las ideas. Esta persona se desempeña mejor en las pruebas que requieren una sola respuesta o solución concreta para una pregunta o problema.
+            Organiza sus conocimientos de manera que se pueda concretar en resolver problemas usando razonamiento hipotético deductivo.
+            Estas personas se orientan más a las cosas que a las personas. Tienden a tener menos intereses por la materia física y se orientan a la especialización científica.
+        </p>
+    </article>
+    <article class="contenedor">
+        <h4>Divergente (Los Activos)</h4>
+        <p>
+            Se desempeña mejor en cosas concretas (EC) y la observación reflexiva (OR).
+            Su punto más fuerte es la capacidad imaginativa. Se destaca porque tiende a considerar situaciones concretas desde muchas perspectivas.
+            Se califica este estilo como “divergente” porque es una persona que funciona bien en situaciones que exigen producción de ideas (como en la “lluvia de ideas”).
+        </p>
+    </article>
+    <article class="contenedor">
+        <h4>Asimilador (Los Teóricos)</h4>
+        <p>
+            Predomina en esta persona la <b>conceptualización abstracta (CA)</b> y la <b>observación reflexiva (OR)</b>
+            Su punto más fuerte lo tiene en la capacidad de crear modelos teóricos. Se caracteriza por un razonamiento inductivo y poder juntar observaciones dispares en una explicación integral.
+            Se interesa menos por las personas que por los conceptos abstractos, y dentro de éstos prefiere lo teórico a la aplicación práctica. Suele ser un científico o un investigador.
+        </p>
+    </article>
+</section>
+<div id="contenedor_boton_crear" class="contenedor">
+    <a href="{% url 'evaluaciones:test_kolb' %}" class="boton">Crear</a>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Ver Pregunta - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/ver_datos.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div>
+    {% for message in messages %}
+        <div class="mensaje {{message.tags}}">{{message}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor_tabla">
+    <h2>Tipo de Pregunta: {{pregunta.tipo_pregunta}}</h2>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Pregunta:</b></span></div>
+        <div class="valor"><span>{{pregunta.pregunta}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Tipo:</b></span></div>
+        <div class="valor"><span>{{pregunta.tipo_pregunta}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Respuestas:</b></span></div>
+        <div class="valor">
+            {% for respuesta in respuestas %}
+                <div><b>{{respuesta.estilo_aprendizaje}}:</b> {{respuesta.respuesta}}</div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Opciones:</b></span></div>
+        <div class="valor">
+            <a id="boton-editar" class="boton" href="{% url 'evaluaciones:editar_pregunta' pregunta.id %}">Editar</a>
+            <a id="boton-eliminar" class="boton" href="{% url 'evaluaciones:eliminar_pregunta' pregunta.id %}">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

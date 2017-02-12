@@ -1,0 +1,42 @@
+{% extends 'usuarios/root/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="contenedor-registrarse">
+   <h2 class="titulo-formulario">Crear Usuario</h2>
+    <form id="form-registrarse" action="" method="post"> {% csrf_token %}
+    <div id="contenedor-botones-rol">
+            {% block botonrol %}
+            {% if boton_activo == 'estudiante' %}
+            <input type="hidden" name="rol" value="estudiante" />
+            <a id="boton-rol-psicologo" class="boton_rol" href="{% url 'root:root_crear_usuario' %}">Admin-Psicólogo</a>
+            <a id="boton-rol-estudiante" class="boton_rol boton_activo" href="?usuario=estudiante">Estudiante</a>
+            {% else %}
+            <a id="boton-rol-psicologo" class="boton_rol boton_activo" href="{% url 'root:root_crear_usuario' %}">Admin-Psicólogo</a>
+            <a id="boton-rol-estudiante" class="boton_rol" href="?usuario=estudiante">Estudiante</a>
+            {% endif %}
+            {% endblock %}
+        </div>
+    {% if not boton_activo %}
+    	{% if form_usuario.rol.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.rol.errors %}
+                <b>Error en el campo Rol: </b> {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+    <div class="contenedor-input">
+        <select name="rol">
+            <option>Rol</option>
+            <option value="administrador">Administrador</option>
+            <option value="psicologo">Psicólogo</option>
+        </select>
+    </div>
+    {% endif %}
+	{% include 'form-registro.html' %}
+    </form>
+</div>
+{% endblock %}

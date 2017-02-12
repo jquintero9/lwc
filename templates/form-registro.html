@@ -1,0 +1,155 @@
+
+        {% if mensaje_error %}
+        <div class="mensaje-formulario">{{mensaje_error|escape}}</div>
+        {% endif %}
+        {% if form_usuario.tipo_identificacion.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.tipo_identificacion.errors %}
+                <b>Error en el campo tipo de identificación: </b>{{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% if form_usuario.genero.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.genero.errors %}
+                <b>Error en el campo género: </b>{{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <div id="contenedor-identificacion">
+                <label class="label-form">Tipo Identificación: </label>
+                <input type="radio" name="tipo_identificacion" value="C.C" checked required /><span>C.C</span>
+                <input type="radio" name="tipo_identificacion" value="T.I" required /><span>T.I</span>
+            </div>
+            <div id="contenedor-genero">
+                <label class="label-form">Género: </label>
+                <input type="radio" name="genero" value="M" checked required /><span>M</span>
+                <input type="radio" name="genero" value="F" required /><span>F</span>
+            </div>
+        </div>
+        {% if boton_activo == 'estudiante' %}
+            {% if form_estudiante.grupo.errors %}
+                <div class="mensaje-formulario">
+                {% for error in form_estudiante.grupo.errors %}
+                    {{error|escape}}
+                {% endfor %}
+                </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label for="id_grupo"><b>Grupo:</b></label></div>
+                {{ form_estudiante.grupo }}
+            </div>
+        {% endif %}
+
+        {% if form_usuario.identificacion.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.identificacion.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_identificacion" class="label-input"><b>Identificación:</b></label>
+            {{ form_usuario.identificacion }}
+        </div>
+        
+        {% if form_usuario.nombres.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.nombres.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_nombres" class="label-input"><b>Nombres:</b></label>
+            {{ form_usuario.nombres }}
+        </div>
+
+        {% if form_usuario.apellidos.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.apellidos.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_apellidos" class="label-input"><b>Apellidos:</b></label>
+            {{ form_usuario.apellidos }}
+        </div>
+
+        {% if form_usuario.fecha_nacimiento.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.fecha_nacimiento.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_fecha_nacimiento" class="label-input"><b>Fecha de Nacimiento:</b></label>
+            {{ form_usuario.fecha_nacimiento }}
+        </div>
+
+        {% if form_usuario.direccion.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.direccion.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_direccion" class="label-input"><b>Dirección:</b></label>
+            {{ form_usuario.direccion }}
+        </div>
+
+        {% if form_usuario.telefono.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.telefono.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_telefono" class="label-input"><b>Teléfono:</b></label>
+            {{ form_usuario.telefono }}
+        </div>
+        {% if form_user.email.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_user.email.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_email" class="label-input"><b>Correo:</b></label>
+            {{ form_user.email }}
+        </div>
+        {% if show_input_password %}
+            {% if form_user.password.errors %}
+                <div class="mensaje-formulario">
+                {% for error in form_user.password.errors %}
+                    {{error|escape}}
+                {% endfor %}
+                </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <label for="id_password" class="label-input"><b>Contraseña:</b></label>
+               <input id="id_password" class="input" type="password" name="password" maxlength="16" required />
+            </div>
+            
+            {% if form_user.confirmar_password.errors %}
+                <div class="mensaje-formulario">
+                {% for error in form_user.confirmar_password.errors %}
+                    {{error|escape}}
+                {% endfor %}
+                </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <label for="id_confirmar_password" class="label-input"><b>Confirmar Contraseña:</b></label>
+                <input id="id_confirmar_password" class="input" type="password" name="confirmar_password" required />
+            </div>
+        {% endif %}
+
+        <input id="boton-registrarse-form" type="submit" value="Registrarse" />
+
+  

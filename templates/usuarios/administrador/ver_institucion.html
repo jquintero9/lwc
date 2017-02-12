@@ -1,0 +1,51 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Ver Institución - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/ver_datos.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="mensaje {{mensaje|escape}}">
+    {% for message in messages %}
+        <div>{{message}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor_tabla">
+    <h2>Institución: {{institucion.nombre}}</h2>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>N.I.T</b></span></div>
+        <div class="valor"><span>{{institucion.nit}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Nombre:</b></span></div>
+        <div class="valor"><span>{{institucion.nombre}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Dirección:</b></span></div>
+        <div class="valor"><span>{{institucion.direccion}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Teléfono:</b></span></div>
+        <div class="valor"><span>{{institucion.telefono}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Ciudad:</b></span></div>
+        <div class="valor"><span>{{institucion.ciudad}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Sitio Web:</b></span></div>
+        <div class="valor"><span>{{institucion.sitio_web}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Opciones:</b></span></div>
+        <div class="valor">
+            <a id="boton-editar" class="boton" href="{% url 'usuarios:admin_editar_institucion' institucion.id %}">Editar</a>
+            <a id="boton-eliminar" class="boton" href="{% url 'usuarios:admin_eliminar_institucion' institucion.id %}">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

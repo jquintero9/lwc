@@ -1,0 +1,41 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/tablas.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+{% block title %}Lista de Instituciones - {{user.username}}{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="mensaje {{mensaje}}">
+    {% for message in messages %}
+    <div>{{message}}</div>
+</div>
+    {% endfor %}
+{% endif %}
+{% if instituciones %}
+<table>
+	<thead>
+		<tr>
+			<th>NIT</th>
+			<th>Nombre</th>
+			<th>Sitio Web</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for institucion in instituciones %}
+		<tr>
+			<td><a href="{% url 'usuarios:admin_institucion' institucion.id %}">{{institucion.nit}}</a></td>
+			<td>{{institucion.nombre}}</td>
+			<td><a href="{{institucion.sitio_web}}">{{institucion.sitio_web}}</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<div class="lista_vacia">
+	<h2>La lista de <b>Instituciones</b> está vacia.</h2>
+</div>
+{% endif %}
+{% endblock %}

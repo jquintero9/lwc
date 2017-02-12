@@ -66,6 +66,6 @@ def home(request):
 		return HttpResponseRedirect("/%s" % (new_join_old.ref_id))
 
 	context = {'form': form}
-	template = 'home.html'
+	template = 'index.html'
 	
 	return render(request, template, context)

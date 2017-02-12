@@ -1,0 +1,92 @@
+
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    background-color: #F6F9FC;
+    color: #555;
+    font-size: 16px;
+    font-family: "Josefin Sans";
+    margin: 0 auto;
+    width: 100%;
+}
+
+header {
+    background-color: #FFF;
+    border-bottom: 1px solid #DDD;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.contenedor-header {
+    margin: 0 auto;
+    width: 95%
+}
+
+.logo {
+    font-size: 1.1em;
+    float: left;
+}
+
+.nav-header {
+    float: right;
+    margin-top: 10px;
+}
+
+.nav-header li {
+    list-style: none;
+    float: left;
+    margin-left: 5px;
+}
+
+.nav-header li a {
+    /*border: 1px solid #555;*/
+    color: #555;
+    font-size: 1.1em;
+    height: 32px;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: block;
+}
+
+.drop-content {
+    background-color: #FFF;
+    box-shadow: 1px 1px 2px 2px #DDD;
+    min-width: 160px;
+    position: absolute;
+    display: none;
+}
+
+.a-drop {
+    /*border-bottom: 1px solid #DDD;*/
+}
+
+.a-drop:hover {
+    background-color: #e3f2ff;
+}
+
+.a-opcion:hover, .a-drop-button:hover {
+    background-color: #e3f2ff;
+}
+
+.a-drop-button {
+    box-shadow: 1px 1px 2px 2px #F6F9FC;
+}
+
+.drop-button {
+    position: relative;
+}
+
+.drop-button:hover .drop-content {
+    display: block;
+}
+
+#contenido {
+    margin-top: 96px;
+}

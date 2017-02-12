@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block description %}
+<meta name="description" content="En está página se puede iniciar sesión, para poder acceder a las funciones que ofrece la aplicación." />
+{% endblock %}
+
+{% block options %}
+<li><a href="{% url 'usuarios:registrarse' %}" class="icon-user">REGISTRARSE</a></li>
+{% endblock %}
+
+{% block content %}
+<div id="formulario-iniciar-sesion" class="formulario-wrapper col-wd-5 col-md-7 col-sm-11">
+   <h2 class="icon-sign-in titulo-formulario">Inicia Sesión</h2>
+    <form id="form-iniciar-sesion" action="" method="post"> {% csrf_token %}
+    {% if mensaje %}
+        <div class="mensaje-formulario">{{mensaje|escape}}</div>
+    {% endif %}
+        {% if form.email.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form.email.errors %}
+                {{error}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_email" class="icon-email label-input"><b>Correo:</b></label>
+            {{form.email}}
+        </div>
+
+        {% if form.password.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form.password.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="contenedor-input">
+            <label for="id_password" class="icon-password label-input"><b>Contraseña:</b></label>
+            <input id="id_password" class="input" type="password" name="password" required />
+        </div>
+
+        <input type="submit" value="Entrar" />
+
+        <!--<a href="#">¿Olividate tú contraseña?</a>-->
+    </form>
+</div>
+<!--Footer-->
+<footer id="footer-registro">
+    <h2 class="icon-contacto titulo-footer">CONTACTO</h2>
+    <div>
+        <span class="icon-email">jhjaquintero@gmail.com</span>
+    </div>
+    <div>
+        <a href="//www.facebook.com/jhon.quintero.9619" class="icon-facebook">Facebook</a>
+    </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/formulario.js' %}"></script>
+{% endblock %}

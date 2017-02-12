@@ -1,12 +1,310 @@
+
+/* Se inicializan los valores por defecto. */
 * {
-	border: 0;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
 }
 
+
+/* Estilos del body y html */
 body, html {
-	font-size: 16px;
-	background-color: blue;
-	color: #FFF;
+    background-color: #F6F9FC;
+    color: #555;
+    font-size: 16px;
+    font-family: "Josefin Sans", monospace, san-serif;
 }
+
+
+/* Se remueve el subrayado a los elementos "<a></a>" y los indices a las listas.*/
+a { text-decoration: none; }
+a::before { margin-right: 8px; }
+ul { list-style: none; }
+
+/*****Contenedor de la Página ********/
+#contenedor-pagina {
+    background-color: #FFF;
+
+    overflow: hidden;
+}
+
+/********** Estilos del Header ***********/
+
+#header {
+    width: 100%;
+    height: 50px;
+    background-color: #FFF;
+    border-bottom: 1px solid #DDD;
+}
+
+#header a {
+    color: #555;
+    transition-duration: 0.4s;
+}
+#header a:hover { color: #F05F40;}
+
+/* Contenedor Header */
+#contenedor-header {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 10px;
+
+}
+
+/* Logo Header */
+#logo-header {
+    margin: 9px 0;
+    height: 32px;
+    font-size: 1.8em;
+    letter-spacing: 2px;
+
+}
+
+/* Navegación Header */
+#navegacion-header {
+    margin: 15.5px 0;
+    height: 19px;
+}
+
+#navegacion-header ul { float: right; }
+#navegacion-header ul li { float: left; }
+#navegacion-header ul li:not(:last-child) { margin-right: 2em; }
+#navegacion-header ul li a {
+    color: #555;
+    font-size: 0.95em;
+    font-weight: bold;
+}
+
+/************ Contenido *************/
+#content {
+    margin: 0;
+    width: 100%;
+    height: 100%:
+    overflow: hidden;
+}
+
+/**************  Formularios  *****************/
+
+/* Formulairo registro */
+#formulario-registro {
+    float: none;
+}
+
+#formulario-iniciar-sesion {
+    float: none;
+    margin: 128px auto;
+}
+
+/* Contenedor del formulario */
+.formulario-wrapper {
+    margin: 32px auto;
+    padding-bottom: 1em;
+    box-shadow: 0 0 2px 2px #DDD;
+}
+
+/* Titulo del Formulario */
+h2.titulo-formulario {
+    margin-bottom: 1em;
+    padding: 10px 0;
+    background-color: #555;
+    color: #FFF;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    font-size: 2em;
+}
+h2.titulo-formulario::before { margin-right: 10px; }
+
+/* Mensajes en el formulario */
+div.mensaje-formulario {
+    margin: 0.25em auto;
+    width: 80%;
+    padding: 10px;
+    background-color: #F6F9FC;
+    color: orange;
+    border: 1px solid orange;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+/* Botones de rol */
+/* Contenedor de botones */
+div#contenedor-botones-rol {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 80%;
+    box-shadow: 0 0 1px 1px #555;
+}
+
+/* Botones rol */
+a.boton_rol {
+    float: left;
+    width: 50%;
+    padding: 5px;
+    color: #000;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#boton-rol-psicologo { border-radius: 10px 0 0 10px; }
+#boton-rol-estudiante { border-radius: 0 10px 10px 0; }
+/* Estilos cuando el botón rol está activo. */
+a.boton_activo {
+    background-color: #555;
+    color: #FFF;
+}
+
+/* Contenedores Input */
+div.contenedor-input {
+    position: relative;
+    margin: 1.2em auto;
+
+    width: 80%;
+}
+
+/* Inputs */
+.input {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border-bottom: 1px solid #DDD;
+    font-size: 1.2em;
+    font-family: "Josefin Sans";
+    color: #555;
+}
+
+.input:focus {
+    border-bottom: 2px solid #555;
+}
+
+/* Input de tipo select */
+select {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border-bottom: 1px solid #DDD;
+}
+
+input[type="submit"] {
+    margin: 1em auto;
+    display: block;
+    width: 80%;
+    height: 40px;
+    font-size: 1.1em;
+    background-color: #555;
+    color: #FFF;
+    border-radius: 10px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover { background-color: #222; }
+
+/* Label de cada Input */
+.label-input {
+    position: absolute;
+    left: 0;
+    top: 24px;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    transition-duration: 0.5s;
+}
+
+/* Estilos cuando se activa el evento focus sobre el input */
+label.active {
+    top: 5px;
+    font-size: 1em;
+}
+
+.label-input::before { margin-right: 8px; }
+
+/* Footer del formulario registro */
+#footer-registro {
+    width: 100%;
+    padding: 2%;
+    min-height: 300px;
+    background-color: #FFF;
+    border-top: 1px solid #DDD;
+}
+
+#footer-registro div {
+   margin: 1em auto;
+   width: 50%;
+   font-size: 1.2em;
+   text-align: center;
+}
+
+h2.titulo-footer {
+    text-align: center;
+}
+
+#footer-registro span::before, h2.titulo-footer::before { margin-right: 8px; }
+#footer-registro a { color: #555; }
+
+
+/********* Responsive Design *********/
+[class*='col-']{
+    float: left;
+    width: 100%;
+}
+
+
+/* Estilos para pantallas pequeñas (Smartphones) desde 320px.*/
+
+@media screen and (min-width: 240px) {
+    .col-sm-1 {width: 8.33333%;}
+    .col-sm-2 {width: 16.66667%;}
+    .col-sm-3 {width: 25%;}
+    .col-sm-4 {width: 33.33333%;}
+    .col-sm-5 {width: 41.66667%;}
+    .col-sm-6 {width: 50%;}
+    .col-sm-7 {width: 58.33333%;}
+    .col-sm-8 {width: 66.66667%;}
+    .col-sm-9 {width: 75%;}
+    .col-sm-10 {width: 83.33333%;}
+    .col-sm-11 {width: 91.66667%;}
+    .col-sm-12 {width: 100%;}
+
+
+
+}
+
+/* Estilos para pantallas medianas (Tablet) desde 640px */
+
+@media screen and (min-width: 640px) {
+    .col-md-1 {width: 8.33333%;}
+    .col-md-2 {width: 16.66667%;}
+    .col-md-3 {width: 25%;}
+    .col-md-4 {width: 33.33333%;}
+    .col-md-5 {width: 41.66667%;}
+    .col-md-6 {width: 50%;}
+    .col-md-7 {width: 58.33333%;}
+    .col-md-8 {width: 66.66667%;}
+    .col-md-9 {width: 75%;}
+    .col-md-10 {width: 83.33333%;}
+    .col-md-11 {width: 91.66667%;}
+    .col-md-12 {width: 100%;}
+
+
+}
+
+/* Estilos para pantallas grandes (computadores) desde 960px */
+@media screen and (min-width: 960px) {
+    .col-wd-1 {width: 8.33333%;}
+    .col-wd-2 {width: 16.66667%;}
+    .col-wd-3 {width: 25%;}
+    .col-wd-4 {width: 33.33333%;}
+    .col-wd-5 {width: 41.66667%;}
+    .col-wd-6 {width: 50%;}
+    .col-wd-7 {width: 58.33333%;}
+    .col-wd-8 {width: 66.66667%;}
+    .col-wd-9 {width: 75%;}
+    .col-wd-10 {width: 83.33333%;}
+    .col-wd-11 {width: 91.66667%;}
+    .col-wd-12 {width: 100%;}
+
+
+}
+
+
+

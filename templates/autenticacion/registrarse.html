@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+<!--Meta Tags-->
+{% block title %}Registrarse{% endblock %}
+{% block description %}
+    <meta name="description" content="En esta página se registraran los usuarios, para posteriormente acceder a la aplicación." />
+{% endblock %}
+
+<!--Header-->
+{% block options %}
+    <li><a href="{% url 'usuarios:autenticarse' %}" class="icon-sign-in">INICIAR SESION</a></li>
+{% endblock %}
+
+{% block content %}
+<div id="formulario-registro" class="formulario-wrapper col-wd-4 col-md-8 col-sm-11">
+   <h2 class="icon-user titulo-formulario">Registrate</h2>
+   {% if messages %}
+    <div class="mensaje-formulario">
+    {% for message in messages %}
+        <div>{{message|escape}}</div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <form id="form-registrarse" action="" method="post"> {% csrf_token %}
+    <div id="contenedor-botones-rol">
+            {% block botonrol %}
+            {% if boton_activo == 'estudiante' %}
+            <input type="hidden" name="rol" value="estudiante" />
+            <a id="boton-rol-psicologo" class="boton_rol" href="?usuario=psicologo">Psicólogo</a>
+            <a id="boton-rol-estudiante" class="boton_rol boton_activo" href="?usuario=estudiante">Estudiante</a>
+            {% else %}
+            <input type="hidden" name="rol" value="psicologo" />
+            <a id="boton-rol-psicologo" class="boton_rol boton_activo" href="?usuario=psicologo">Psicólogo</a>
+            <a id="boton-rol-estudiante" class="boton_rol" href="?usuario=estudiante">Estudiante</a>
+            {% endif %}
+            {% endblock %}
+    </div>
+    {% if form_usuario.rol.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.rol.errors %}
+            <b>Error en el campo Rol: </b> {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% include 'form-registro.html' %}
+    </form>
+
+</div>
+
+<!--Footer-->
+<footer id="footer-registro">
+    <h2 class="icon-contacto titulo-footer">Contacto</h2>
+    <div>
+        <span class="icon-email">jhjaquintero@gmail.com</span>
+    </div>
+    <div>
+        <a href="//www.facebook.com/jhon.quintero.9619" class="icon-facebook">Facebook</a>
+    </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/formulario.js' %}"></script>
+{% endblock %}

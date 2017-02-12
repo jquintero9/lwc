@@ -1,0 +1,52 @@
+
+h2 {
+	background-color: #555;
+	color: #FFF;
+	margin-bottom: 32px;
+	padding: 0.5%;
+	text-align: center;
+}
+
+#form-eliminar {
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 1px 1px 2px 2px #DDD;
+	margin: 256px auto;
+	padding: 1%;
+	width: 60%;
+}
+
+.boton_confirmar {
+	background-color: #269b1a;
+	border-radius: 10px;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 1.05em;
+	height: 40px;
+	padding: 1%;
+}
+
+.boton_confirmar:hover {
+	background-color: #2cb51e;
+}
+
+.boton_cancelar {
+	background-color: #e40f19;
+	border-radius: 10px;
+	color: #FFF;
+	font-size: 1.1em;
+	height: 50px;
+	width: 50px;
+	padding: 2.8%;
+	text-decoration: none;
+}
+
+.boton_cancelar:hover {
+	background-color: #f60404;
+}
+
+.contenedor_botones {
+	margin: 0 auto;
+	text-align: center;
+	width: 50%;
+}

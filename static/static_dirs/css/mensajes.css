@@ -1,0 +1,36 @@
+.mensaje {
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 2px #DDD;
+    color: #FFF;
+    font-size: 1.1em;
+    margin: 32px auto;
+    padding: 0.5%;
+    text-align: center;
+    width: 50%;
+}
+
+.warning {
+    background-color: #e3d604;
+    border: 1px solid #d0c404;
+}
+
+.error {
+    background-color: #bf0505;
+    border: 1px solid #b60505;
+}
+
+.success {
+    background-color: #02b802;
+    border: 2px solid #028f02;
+}
+
+.lista_vacia {
+    background-color: #FFF;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #555;
+    color: #555;
+    margin: 256px auto;
+    padding: 1%;
+    width: 50%;
+}

@@ -1,0 +1,477 @@
+/* Paleta de colores.
+    color: navegacion-header a --> #c6c3c3
+    color: controlador-slider li--> #ee3a14
+    color: boton banner --> #F05F40;
+*/
+
+/* Se importan las fuentes que van a ser utilizadas en el sitio.*/
+@font-face {
+    font-family: "Poiret One";
+    src: url("../fonts/PoiretOne.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Josefin Sans";
+    src: url("../fonts/JosefinSans-Regular.ttf") format("truetype");
+}
+
+/* Se aplica la propiedad box-sizing a todos los elementos html. */
+*, *:before, *:after {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del body y html. */
+body, html{
+    background-color: #F6F9FC;
+    color: #000;
+    font-size: 16px;
+    font-family: "Josefin Sans", monospace;
+}
+
+/* Se remueve el subrayado a los elementos "<a></a>" y los indices a las listas.*/
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/****** Header ******/
+
+#header {
+    position: fixed;
+
+    left: 0;
+    z-index: 40;
+
+    width: 100%;
+    height: 50px;
+    transition-duration: 0.7s;
+}
+
+.header-transparente {
+    top: 4px;
+    background-color: transparent;
+    border-top: 1px solid #C6C3C3;
+    border-bottom: 1px solid #C6C3C3;
+}
+
+.header-visible {
+    background-color: #FFF;
+    border: 1px solid #DDD;
+}
+
+.header-visible a { color: #555; }
+
+/* Menú Header (Responsive)*/
+#menu-header {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    display: none;
+    background-color: #FFF;
+    color: #555;
+}
+
+/* Nav */
+#menu-navegacion-header { width: 100%; }
+#menu-navegacion-header li { width: 100%; }
+#menu-navegacion-header li:not(:last-child) { border-bottom: 1px solid #DDD; }
+#menu-navegacion-header a {
+    display: block;
+    padding: 15px 18px;
+    color: #555;
+    transition-duration: .3s;
+}
+
+#menu-navegacion-header a::before { margin-right: 8px; }
+#menu-navegacion-header a:hover { 
+    background-color: #ee3a14;
+    color: #FFF;
+}
+
+
+/* Contenedor Header */
+#contenedor-header {
+    margin: 0 auto;
+    width: 95%;
+    height: 50px;
+    overflow: hidden;
+}
+
+#contenedor-header a { transition-duration: 0.4s; }
+#contenedor-header a.normal { color: #C6C3C3; }
+#contenedor-header a.normal:hover { color: #FFF; }
+
+#contenedor-header a.scroll { color: #555; }
+#contenedor-header a.scroll:hover { color: #ee3a14; }
+
+/*   logo */
+#logo-header {
+    /*float: left;*/
+    margin: 8px 0;
+    /*width: 30%;*/
+    font-size: 1.8em;
+    letter-spacing: 2px;
+}
+
+
+/*   navegación */
+#navegacion-header {
+    /*float: right;*/
+    margin: 14px 0;
+    /*width: 70%;*/
+}
+
+#navegacion-header ul { float: right; }
+#navegacion-header ul li { float: left; }
+#navegacion-header ul li:not(:last-child) { margin-right: 2em; }
+
+#navegacion-header ul li a {
+    display: block;
+    height: 22px;
+    width: 100%;
+
+    font-size: .9em;
+    font-weight: bold;
+}
+
+#navegacion-header ul li a::before { margin-right: 8px; }
+
+/* Botón Menú */
+#boton-menu {
+    text-align: right;
+    float: right;
+    margin: 10px auto;
+    height: 30px;
+    display: none;
+    color: #C6C3C3;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#boton-menu span { cursor: pointer; }
+
+/****** Fin Header *****/
+
+/****** Banner ******/
+#banner {
+    height: 640px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Slider */
+#slider {
+    width: 100%;
+    height: 640px;
+}
+
+#slider li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#slider li:not(:first-child) { display: none; }
+
+#slider li img {
+    width: 100%;
+    height: 640px;
+}
+
+/* Información Banner */
+.info-banner {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #FFF;
+}
+
+.info-banner h3 {
+    margin: 2em;
+    font-size: 2em;
+    letter-spacing: 3px;
+}
+
+.info-banner p {
+    height: 64px;
+    font-size: 1.5em;
+    color: #c6c3c3;
+}
+
+/* Controlador Slider */
+#controlador-slider {
+    position: absolute;
+    top: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52px;
+}
+
+#controlador-slider li {
+    float: left;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+#controlador-slider li:not(:last-child) { margin-right: 0.5em; }
+#controlador-slider li.active { background-color: #ee3a14; }
+
+.boton {
+    display: block;
+    margin: 96px auto;
+    vertical-align: middle;
+
+    width: 145px;
+    height: 50px;
+    padding: 10px 15px;
+
+    background-color: #F05F40;
+    border-radius: 220px;
+    color: #FFF;
+    font-size: 1.5em;
+    font-weight: 500;
+    transition-duration: 0.36s;
+}
+
+.boton:hover { background-color: #eb3812; }
+
+/****** Fin Banner ******/
+
+/************************* Sección de Contenido *************************/
+#section-contenido {
+    padding: 1%;
+    width: 100%;
+    min-height: 1500px;
+}
+
+/* Secciones */
+.seccion {
+    width: 100%;
+    background-color: #FFF;
+}
+
+/* Titulo de cada sección */
+h2.titulo-seccion {
+    margin: 1em 0;
+    text-align: center;
+    font-size: 2em;
+    background-color: #F05F40;
+    color: #FFF;
+}
+
+h2.titulo-seccion::before { margin-right: 8px; }
+
+/* Subtitulos de cada sección */
+h3.subtitulo-seccion {
+    margin: 0.8em 0;
+    font-size: 1.8em;
+}
+
+/* Parrafos de cada sección */
+section.seccion p {
+    margin: 0.5em auto;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-align: justify;
+}
+
+/* Section Test de Kolb */
+#test-kolb { padding: 15px 2%; }
+
+/* Section Estilos de Aprendizaje */
+#section-estilos-aprendizaje {
+    overflow: hidden;
+    width: 100%;
+    padding: 1%;
+}
+
+#test-kolb h4 { 
+    margin: 0.5em 0;
+    font-size: 1.5em;
+}
+/* Articulos de aprendizaje */
+.article-aprendizaje img {
+    display: block;
+    margin: 0.5em auto;
+}
+
+/* Sección de Usuarios */
+h4.h4-usuarios {
+    margin: 1em auto;
+    font-size: 1.4em;
+}
+
+h4.h4-usuarios::before { margin-right: 10px; }
+
+div.columna-usuarios {
+    padding: 15px 2%;
+}
+
+/* Sección de contacto (footer) */
+#footer-contacto {
+    padding: 1em 2%;
+    min-height: 250px;
+    width: 100%;
+    background-color: #F05F40;
+    color: #FFF;
+}
+
+h2.h2-footer {
+    text-align: center;
+    font-size: 2em;
+}
+
+h2.h2-footer::before { margin-right: 10px; }
+
+.columna-footer {
+    padding: 15px 2%;
+}
+
+.columna-footer div {
+    margin: 0.5em auto;
+    width: 50%;
+    font-size: 24px;
+}
+
+.columna-footer a, .columna-footer span { 
+    vertical-align: top;
+    color: #FFF;
+}
+
+.columna-footer a::before, .columna-footer span::before {
+    margin-right: 8px;
+    font-size: 32px;
+}
+
+.eje {
+    margin: 120px auto;
+    min-height: 200px;
+}
+
+
+/********* Responsive Design **********/
+
+/* Estilos para todos los elementos columna. */
+[class*='col-']{
+    float: left;
+    width: 100%;
+}
+
+.row:before,
+.row:after {
+    content: " ";
+    display: table;
+}
+.grid:after,
+.row:after {clear: both;}
+
+/*.col {
+    padding: 1em;
+    margin: 8px;
+    background:  white;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.3);
+    color: turquoise;
+    text-align: center;
+}
+*/
+
+/* Estilos para dispositivos móviles (Smartphones) desde 320px.*/
+@media screen and (min-width: 240px){
+    
+    .col-sm-1 {width: 8.33333%;}
+    .col-sm-2 {width: 16.66667%;}
+    .col-sm-3 {width: 25%;}
+    .col-sm-4 {width: 33.33333%;}
+    .col-sm-5 {width: 41.66667%;}
+    .col-sm-6 {width: 50%;}
+    .col-sm-7 {width: 58.33333%;}
+    .col-sm-8 {width: 66.66667%;}
+    .col-sm-9 {width: 75%;}
+    .col-sm-10 {width: 83.33333%;}
+    .col-sm-11 {width: 91.66667%;}
+    .col-sm-12 {width: 100%;}
+    
+    #navegacion-header { display: none; }
+    
+    #boton-menu { display: block; }
+    
+    .info-banner h3 {
+        font-size: 1.6em;
+        letter-spacing: normal;
+    }
+
+    .info-banner p { font-size: 1.3em; }
+
+}
+@media screen and (min-width:640px){
+    html {background-color: blue;}
+    .col-md-1 {width: 8.33333%;}
+    .col-md-2 {width: 16.66667%;}
+    .col-md-3 {width: 25%;}
+    .col-md-4 {width: 33.33333%;}
+    .col-md-5 {width: 41.66667%;}
+    .col-md-6 {width: 50%;}
+    .col-md-7 {width: 58.33333%;}
+    .col-md-8 {width: 66.66667%;}
+    .col-md-9 {width: 75%;}
+    .col-md-10 {width: 83.33333%;}
+    .col-md-11 {width: 91.66667%;}
+    .col-md-12 {width: 100%;}
+    
+    #boton-menu { display: block; }
+    #navegacion-header { display: none; }
+    
+    .info-banner h3 {
+        font-size: 2em;
+        letter-spacing: 3px;
+    }
+
+    .info-banner p { font-size: 1.5em; }
+    
+    
+}
+@media screen and (min-width:960px){
+    html {background-color: red;}
+    
+    .col-wd-1 {width: 8.33333%;}
+    .col-wd-2 {width: 16.66667%;}
+    .col-wd-3 {width: 25%;}
+    .col-wd-4 {width: 33.33333%;}
+    .col-wd-5 {width: 41.66667%;}
+    .col-wd-6 {width: 50%;}
+    .col-wd-7 {width: 58.33333%;}
+    .col-wd-8 {width: 66.66667%;}
+    .col-wd-9 {width: 75%;}
+    .col-wd-10 {width: 83.33333%;}
+    .col-wd-11 {width: 91.66667%;}
+    .col-wd-12 {width: 100%;}
+    #navegacion-header { display: block; }
+    #boton-menu { display: none; }
+    #menu-header { left: -100%; }
+    
+    .info-banner h3 {
+        font-size: 2em;
+        letter-spacing: 3px;
+    }
+
+    .info-banner p { font-size: 1.5em; }
+    
+    .article-aprendizaje { 
+        height: 480px; 
+        padding: 0.5em 1%;
+        box-shadow: 1px 1px 2px #DDD;
+    }
+    
+    h4.h4-usuarios { text-align: center; }
+}
+
+/************************* Fin se Sección de Contenido *************************/

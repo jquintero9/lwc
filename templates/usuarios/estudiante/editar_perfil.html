@@ -1,0 +1,13 @@
+{% extends 'usuarios/estudiante/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+{% endblock %}
+{% block content %}
+<div id="contenedor-registrarse">
+   <h2 class="titulo-formulario">Editar Mi Perfil</h2>
+    <form id="form-registrarse" action="" method="post"> {% csrf_token %}
+    {% include 'usuarios/editar_usuario.html' %}
+    </form>
+</div>
+{% endblock %}

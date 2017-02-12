@@ -1,0 +1,10 @@
+{% extends 'usuarios/root/home.html' %}
+{% load staticfiles %}
+{% block title %}Eliminar Usuario - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/eliminar_usuario.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'usuarios/eliminar_usuario.html' %}
+{% endblock %}

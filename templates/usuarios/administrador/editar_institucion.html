@@ -1,0 +1,18 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles  %}
+{% block title %}Editar Institución - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="contenedor-registrarse">
+   <h2 class="titulo-formulario">Editar Institución</h2>
+    <form id="form-registrarse" action="" method="post"> {% csrf_token %}
+    {% include 'usuarios/administrador/formulario_institucion.html' %}
+        <div class="contenedor-input">
+		    <input class="input" type="submit" value="Editar" />
+	    </div>
+    </form>
+</div>
+{% endblock %}

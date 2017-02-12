@@ -1,0 +1,41 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Crear Test de Kolb - {{user.username}}{% endblock %}
+{% block estilos %}
+<!--<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />-->
+<link rel="stylesheet" href="{% static 'css/crear_test.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+
+{% block content %}
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="mensaje {{message.tags}}">{{message}}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="contenedor"><h2 class="titulo_pregunta">Crear Test</h2></div>
+    <div id="contenedor_formulario">
+        <div>
+            <a id="boton-agregar" href="#">Agregar</a>
+        </div>
+        <form id="form" action="" method="POST"> {% csrf_token %}
+            <input id="numero-preguntas" type="hidden" name="numero_preguntas" value="0" />
+            <div id="preguntas">
+                {% if forms %}
+                {% for form in forms %}
+                <div class="contenedor_drop">
+                    <div class="contenedor_pregunta">{{form|safe}}</div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+          Enviar: <input type="submit" value="Enviar" />
+        </form>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{% static 'js/sortable.js' %}"></script>
+{% endblock %}

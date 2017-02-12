@@ -1,0 +1,61 @@
+{% if form.errors %}
+    {% if not form.errors.institucion %}
+        {% if not form.errors.grado %}
+            {% if not form.errors.nombre %}
+                {% if not form.errors.jornada %}
+                    <div class="mensaje-formulario">
+                        <div>En la Institucion <b>{{institucion}}</b> ya existe el grupo <b>{{grado}}-{{nombre}}</b></div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+{% if form.institucion.errors %}
+<div class="mensaje-formulario">
+    {% for error in form.institucion.errors %}
+    <div>{{error|escape}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor-input">
+    <div><label for="id_institucion"><b>Institución:</b></label></div>
+    {{form.institucion}}
+</div>
+
+{% if form.grado.errors %}
+<div class="mensaje-formulario">
+    {% for error in form.grado.errors %}
+    <div>{{error|escape}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor-input">
+    <div><label for="id_institucion"><b>Grado:</b></label></div>
+    {{form.grado}}
+</div>
+
+{% if form.nombre.errors %}
+<div class="mensaje-formulario">
+    {% for error in form.nombre.errors %}
+    <div>{{error|escape}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor-input">
+    <div><label for="id_institucion"><b>Nombre:</b></label></div>
+    {{form.nombre}}
+</div>
+
+{% if form.jornada.errors %}
+<div class="mensaje-formulario">
+    {% for error in form.jornada.errors %}
+    <div>{{error|escape}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor-input">
+    <div><label for="id_institucion"><b>Jornada:</b></label></div>
+    {{form.jornada}}
+</div>

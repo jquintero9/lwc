@@ -1,0 +1,149 @@
+    {% if form_usuario.rol.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.rol.errors %}
+            <b>Error en el campo rol: </b>{{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <input type="hidden" name="rol" value="{{form_usuario.rol.value}}" />
+    {% if mensaje_error %}
+    <div class="mensaje-formulario">{{mensaje_error|escape}}</div>
+    {% endif %}
+    {% if form_usuario.tipo_identificacion.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.tipo_identificacion.errors %}
+            <b>Error en el campo tipo de identificación: </b>{{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% if form_usuario.genero.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.genero.errors %}
+            <b>Error en el campo género: </b>{{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div id="contenedor-identificacion">
+            <label class="label-form">Tipo Identificación: </label>
+            {% if form_usuario.tipo_identificacion.value == 'C.C' or form_usuario.tipo_identificacion.value == '' %}
+                <input type="radio" name="tipo_identificacion" value="C.C" checked required /><span>C.C</span>
+                <input type="radio" name="tipo_identificacion" value="T.I" required /><span>T.I</span>
+            {% elif form_usuario.tipo_identificacion.value == 'T.I' %}
+                <input type="radio" name="tipo_identificacion" value="C.C" required /><span>C.C</span>
+                <input type="radio" name="tipo_identificacion" value="T.I" checked required /><span>T.I</span>
+            {% endif %}
+        </div>
+        <div id="contenedor-genero">
+            <label class="label-form">Género: </label>
+            {% if form_usuario.genero.value == 'M' or form_usuario.genero.value == '' %}
+                <input type="radio" name="genero" value="M" checked required /><span>M</span>
+                <input type="radio" name="genero" value="F" required /><span>F</span>
+            {% elif form_usuario.genero.value == 'F' %}
+                <input type="radio" name="genero" value="M" required /><span>M</span>
+                <input type="radio" name="genero" value="F" checked required /><span>F</span>
+            {% endif %}
+        </div>
+    </div>
+    {% if rol == 'estudiante' %}
+        {% if form_estudiante.grupo.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_estudiante.grupo.errors %}
+                {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+        {% if form_estudiante.grupo %}
+        <div class="contenedor-input">
+            <div><label for="id_grupo"><b>Grupo:</b></label></div>
+            {{ form_estudiante.grupo }}
+        </div>
+        {% endif %}
+    {% endif %}
+
+    {% if form_usuario.identificacion.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.identificacion.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_identificacion"><b>Identificación:</b></label></div>
+        {{ form_usuario.identificacion }}
+    </div>
+    
+    {% if form_usuario.nombres.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.nombres.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_nombres"><b>Nombres:</b></label></div>
+        {{form_usuario.nombres }}
+    </div>
+
+    {% if form_usuario.apellidos.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.apellidos.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_apellidos"><b>Apellidos:</b></label></div>
+        {{form_usuario.apellidos }}
+    </div>
+
+    {% if form_usuario.fecha_nacimiento.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.fecha_nacimiento.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_fecha_nacimiento"><b>Fecha de Nacimiento:</b></label></div>
+        {{form_usuario.fecha_nacimiento }}
+    </div>
+
+    {% if form_usuario.direccion.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.direccion.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_direccion"><b>Dirección:</b></label></div>
+        {{form_usuario.direccion }}
+    </div>
+
+    {% if form_usuario.telefono.errors %}
+        <div class="mensaje-formulario">
+        {% for error in form_usuario.telefono.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_telefono"><b>Teléfono:</b></label></div>
+        {{form_usuario.telefono }}
+    </div>
+    
+    {% if form_user.email.errors and validando %}
+        <div class="mensaje-formulario">
+        {% for error in form_user.email.errors %}
+            {{error|escape}}
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="contenedor-input">
+        <div><label for="id_email"><b>Correo:</b></label></div>
+        {{form_user.email }}
+    </div>
+    <div class="contenedor-input">
+        <input id="boton-registrarse-form" class="input" type="submit" value="Editar" />
+    </div>

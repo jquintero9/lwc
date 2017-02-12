@@ -1,0 +1,19 @@
+{% extends 'usuarios/base-usuarios.html' %}
+
+{% block title %}Home - Psicólogo{% endblock %}
+
+{% block infousuario %}
+<p>Rol: Psicólogo</p>
+<p><b>{{user}}</b></p>
+{% endblock %}
+
+{% block useroptions %}
+<li><a href="#">Test</a></li>
+<li class="drop-button">
+    <a href="#" class="a-drop-button">Opciones</a>
+    <div class="drop-content">
+        <a class="a-drop" href="{% url 'usuarios:psicologo_perfil' %}">Ver Perfil</a>
+        <a class="a-drop" href="{% url 'usuarios:cerrar_sesion' %}">Cerrar Sesión</a>
+    </div>
+</li>
+{% endblock %}

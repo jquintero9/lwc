@@ -1,0 +1,16 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/eliminar_usuario.css' %}" />
+{% endblock %}
+{% block title %}Eliminar Pregunta - {{user.username|escape}}{% endblock %}
+
+{% block content %}
+<form id="form-eliminar" method="POST" action="">{% csrf_token %}
+	<h2>¿Está seguro que desea eliminar la pregunta?</h2>
+	<div class="contenedor_botones">
+		<button class="boton_confirmar" type="submit">Si, estoy segúro.</button>
+		<a class="boton_cancelar" href="{{url}}">Cancelar</a>
+	</div>
+</form>
+{% endblock %}

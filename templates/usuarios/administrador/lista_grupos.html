@@ -1,0 +1,42 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/tablas.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+{% block title %}Lista de Grupos - {{user.username}}{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="mensaje {{mensaje}}">
+    {% for message in messages %}
+    <div>{{message}}</div>
+</div>
+    {% endfor %}
+{% endif %}
+
+{% if grupos %}
+<table>
+    <thead>
+        <tr>
+            <th>Grado</th>
+            <th>Instituión</th>
+            <th>Jornada</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for grupo in grupos %}
+        <tr>
+            <td><a href="{% url 'usuarios:admin_grupo' grupo.id %}">{{grupo.grado}}-{{grupo.nombre}}</a></td>
+            <td>{{grupo.institucion}}</td>
+            <td>{{grupo.jornada}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="lista_vacia">
+    <h2>La lista de grupos está vacia.</h2>
+</div>
+{% endif %}
+{% endblock %}

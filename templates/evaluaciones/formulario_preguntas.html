@@ -1,0 +1,65 @@
+
+            {% if form_pregunta.pregunta.errors %}
+                <div class="mensaje-formulario">
+                {% for error in form_pregunta.pregunta.errors %}
+                    {{error}}
+                {% endfor %}
+                </div>
+            {% endif %}
+            <div class="contenedor_input">
+                <div><label><b>Pregunta:</b></label></div>
+                {{form_pregunta.pregunta}}
+            </div>
+        </div>
+        <div id="contenedor_respuestas" class="contenedor">
+            <h3>Respuestas: Estilos de Aprendizaje</h3>
+            {% if form_respuestas.respuesta_ec.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_ec.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Experiencia Concreta (EC):</b>: </label></div>
+                {{form_respuestas.respuesta_ec}}
+            </div>
+            {% if form_respuestas.respuesta_or.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_or.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Observación Reflexiva(OR):</b>: </label></div>
+                {{form_respuestas.respuesta_or}}
+            </div>
+            {% if form_respuestas.respuesta_ca.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_ca.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Conceptualización Abstracta(CA):</b>: </label></div>
+                {{form_respuestas.respuesta_ca}}
+            </div>
+            {% if form_respuestas.respuesta_ea.errors %}
+            <div class="mensaje-formulario">
+                {% for error in form_respuestas.respuesta_ea.errors %}
+                    {{error}}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="contenedor-input">
+                <div><label><b>Experimentación Activa(EA):</b>: </label></div>
+                {{form_respuestas.respuesta_ea}}
+            </div>
+        </div>
+        <div id="contenedor_submit" class="contenedor">
+            <div class="contenedor_boton_enviar" >
+                <input class="input" type="submit" value="Enviar" />
+            </div>
+        </div>

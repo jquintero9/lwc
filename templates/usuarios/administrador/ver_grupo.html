@@ -1,0 +1,53 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Ver Grupo - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/ver_datos.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<div class="mensaje {{mensaje|escape}}">
+    {% for message in messages %}
+        <div>{{message}}</div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contenedor_tabla">
+    <h2>Grupo: {{grupo}}</h2>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Institución:</b></span></div>
+        <div class="valor"><span><a href="{% url 'usuarios:admin_institucion' grupo.institucion.id %}">{{grupo.institucion}}</a></span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Grado:</b></span></div>
+        <div class="valor"><span>{{grupo.grado}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Nombre:</b></span></div>
+        <div class="valor"><span>{{grupo.nombre}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Jornada:</b></span></div>
+        <div class="valor"><span>{{grupo.jornada}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Psicólogo Asignado:</b></span></div>
+        <div class="valor"><span>
+            {% if grupo.psicologo_asignado %}
+            {{grupo.psicologo_asignado}}
+            {% else %}
+            Ninguno
+            {% endif %}
+        </span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Opciones:</b></span></div>
+        <div class="valor">
+            <a id="boton-editar" class="boton" href="{% url 'usuarios:admin_editar_grupo' grupo.id %}">Editar</a>
+            <a id="boton-eliminar" class="boton" href="{% url 'usuarios:admin_eliminar_grupo' grupo.id %}">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

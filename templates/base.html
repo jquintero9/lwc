@@ -1,15 +1,44 @@
-{% load staticfiles %}
 <!DOCTYPE html>
-<html>
+{% load staticfiles %}
+<html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Document</title>
-	<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    {% block description %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://file.myfontastic.com/UvFACRzNhY85rtfcRWSKoR/icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />
 </head>
 <body>
-	{%block content%}
-	<h2>Content</h2>
-	{%endblock%}
+<!--En este bloque se escribe el contenido de la página-->
+
+    <div id="contenedor-pagina">
+    <!--header-->
+        <header id="header">
+            <div id="contenedor-header">
+                <h1 id="logo-header" class="logo col-wd-5 col-md-5 col-sm-10"><a href="{% url 'index' %}" class="normal">Psychology Test</a></h1>
+                <nav id="navegacion-header" class="col-wd-7 col-md-7">
+                    <ul>
+                      <!--En este bloque se debe ingresar las opciones del menú header-->
+                       {% block options %}
+                       {% endblock %}
+                    </ul>
+                </nav>
+                <!--En este bloque se escribe el código para el botón menú responsive-->
+                {% block responsiveButton %}
+                {% endblock %}
+            </div>
+        </header>
+        <div id="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+        <!--En este bloque se especifican los scripts que se van a utilizar-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        {% block scripts %}
+        {% endblock %}
+    </div>
 </body>
 </html>

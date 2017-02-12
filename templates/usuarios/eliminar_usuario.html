@@ -1,0 +1,7 @@
+<form id="form-eliminar" method="POST" action="">{% csrf_token %}
+	<h2>¿Está seguro que desea eliminar el usuario <b>{{usuario.id_usuario.username}}</b>?</h2>
+	<div class="contenedor_botones">
+		<button class="boton_confirmar" type="submit">Si, estoy segúro.</button>
+		<a class="boton_cancelar" href="{{url|escape}}">Cancelar</a>
+	</div>
+</form>

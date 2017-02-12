@@ -1,0 +1,30 @@
+#preguntas {
+    width: 50%;
+    margin: 64px auto;
+}
+
+.contenedor_pregunta {
+    margin: 0 auto;
+    border-top: 1px solid #DDD;
+    background-color: #FFF;
+    padding: 10px;
+}
+
+.contenedor_input {
+    margin: 0.25em auto;
+    padding: 1%;
+    width: 80%;
+}
+
+.input {
+    border-bottom: 1px solid #999;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+
+}
+
+
+label {
+    font-size: 0.8em;
+}

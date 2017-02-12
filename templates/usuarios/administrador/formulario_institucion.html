@@ -1,0 +1,66 @@
+    {% if form.nit.errors %}
+	<div class="mensaje-formulario">
+		{% for error in form.nit.errors %}
+		<div>{{error|escape}}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="contenedor-input">
+		<div><label for="id_nit"><b>N.I.T</b></label></div>
+		{{form.nit}}
+	</div>
+	{% if form.nombre.errors %}
+	<div class="mensaje-formulario">
+		{% for error in form.nombre.errors %}
+		<div>{{error|escape}}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="contenedor-input">
+		<div><label for="id_nit"><b>Nombre:</b></label></div>
+		{{form.nombre}}
+	</div>
+	{% if form.direccion.errors %}
+	<div class="mensaje-formulario">
+		{% for error in form.direccion.errors %}
+		<div>{{error|escape}}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="contenedor-input">
+		<div><label for="id_nit"><b>Dirección:</b></label></div>
+		{{form.direccion}}
+	</div>
+	{% if form.telefono.errors %}
+	<div class="mensaje-formulario">
+		{% for error in form.telefono.errors %}
+		<div>{{error|escape}}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="contenedor-input">
+		<div><label for="id_nit"><b>Teléfono</b></label></div>
+		{{form.telefono}}
+	</div>
+	{% if form.ciudad.errors %}
+	<div class="mensaje-formulario">
+		{% for error in form.ciudad.errors %}
+		<div>{{error|escape}}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="contenedor-input">
+		<div><label for="id_nit"><b>Ciudad:</b></label></div>
+		{{form.ciudad}}
+	</div>
+	{% if form.sitio_web.errors %}
+	<div class="mensaje-formulario">
+		{% for error in form.sitio_web.errors %}
+		<div>{{error|escape}}</div>
+		{% endfor %}
+	</div>
+	{% endif %}
+	<div class="contenedor-input">
+		<div><label for="id_nit"><b>Sitio Web:</b></label></div>
+		{{form.sitio_web}}
+	</div>

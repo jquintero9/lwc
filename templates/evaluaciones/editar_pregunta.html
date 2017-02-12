@@ -1,0 +1,27 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block title %}Editar Pregunta - {{user.username}}{% endblock %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+<link rel="stylesheet" href="{% static 'css/mensajes.css' %}" />
+{% endblock %}
+
+{% block content %}
+    <div class="contenedor"><h2 class="titulo_pregunta">Editar Pregunta</h2></div>
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="mensaje {{message.tags}}">{{message}}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if form_respuestas and form_pregunta %}
+    <form method="POST" action=""> {% csrf_token %}
+        <div id="contenedor_pregunta" class="contenedor">
+            {% include 'evaluaciones/formulario_preguntas.html' %}
+       </div>
+    </form>
+    {% endif %}
+
+{% endblock %}

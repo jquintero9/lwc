@@ -1,0 +1,220 @@
+/*********** Formularios de Registro e Iniciar Sesion ***********/
+#contenedor-registrarse, #contenedor-iniciar-sesion {
+    background-color: #FFF;
+    box-shadow: 1px 1px 1px 1px #DDD;
+    border-radius: 10px;
+    margin: 70px auto 32px auto;
+    padding-bottom: 1%;
+    width: 33.33%;
+}
+
+#contenedor-iniciar-sesion {
+    margin: 200px auto;
+    width: 33.33%;
+}
+
+#form-iniciar-sesion {
+    margin: 32px auto;
+}
+
+.contenedor-input {
+    margin: 0.5em auto;
+    overflow: hidden;
+    width: 85%;
+}
+
+.input, select {
+    border: 1px solid #999;
+    border-radius: 5px;
+    color: #777;
+    font-family: "Josefin Sans";
+    font-size: 1.1em;
+    padding: 1%;
+    height: 32px;
+    width: 100%;
+}
+
+
+input[type="submit"]:enabled {
+    background-color: #555;
+    border-radius: 10px;
+    color: #F6F9FC;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #444;
+}
+
+input[type="submit"]:disabled {
+    background-color: #DDD;
+}
+
+.label-form {
+    font-size: 1.1em;
+}
+
+input[type="radio"] {
+    margin-right: 0.25em;
+    font-size: 1.1em;
+}
+
+.mensaje-formulario {
+    background-color: #F6F9FC;
+    border-radius: 8px;
+    border: 1px solid #E56B11;
+    color: #E56B11;
+    font-size: 1.1em;
+    margin: 0 auto;
+    padding: 0.25em;
+    width: 85%;
+}
+
+.titulo-formulario {
+    background-color: #555;
+    border-radius: 10px 10px 0 0;
+    color: #F6F9FC;
+    display: block;
+    padding: 1%;
+    margin-bottom: 32px;
+}
+
+#contenedor-identificacion, #contenedor-genero {
+    border: 1px solid #999;
+    float: left;
+    padding: 1%;
+    width: 60%;
+}
+
+#contenedor-genero {
+    width: 40%;
+}
+
+/* Botones Rol */
+#contenedor-botones-rol {
+    overflow: hidden;
+    margin: 1em auto;
+    width: 80%;
+}
+
+.boton_rol {
+    float: left;
+    font-size: 1.1em;
+    border: 1px solid #555;
+    display: block;
+    padding: 0.25em;
+    text-decoration: none;
+    text-align: center;
+    width: 50%
+}
+
+#boton-rol-psicologo {
+    border-radius: 10px 0 0 10px;
+}
+
+#boton-rol-estudiante {
+    border-radius: 0 10px 10px 0;
+}
+
+.boton_activo {
+    background-color: #555;
+    color: #F6F9FC;
+}
+
+.boton {
+    background-color: #555;
+        border-radius: 10px;
+        color: #FFF;
+        font-size: 1.1em;
+        
+        padding: 3%;
+        text-decoration: none;
+}
+
+.boton:hover {
+    background-color: #333;
+}
+
+/* Estilos para formularios de Crear Preguntas y Editar Preguntas*/
+
+.contenedor {
+    background-color: #FFF;
+    box-shadow: 1px 1px 3px 3px #DDD;
+    margin: 16px auto;
+    padding: 1%;
+    width: 50%;
+}
+
+#form_tipo_pregunta {
+    margin: 1em auto;
+    min-height: 128px;
+}
+
+.contenedor_boton_enviar {
+    margin: 0.5em auto;
+    padding: 1%;
+    width: 30%
+}
+
+#boton_enviar {
+    padding: 1%;
+}
+
+textarea {
+    border-bottom: 1px solid #888;
+    resize:none;
+    margin: 0.25em auto;
+    font-family: "Josefin Sans";
+    height: 24px;
+    max-height:24px;
+    min-height:24px;
+    outline: none;
+    transition-duration: 0.4s;
+    width: 100%;
+}
+
+textarea:focus {
+    border-bottom: 3px solid #444;
+}
+
+/*#contenedor_pregunta, #contenedor_respuestas {
+    box-shadow: 1px 1px 1px 1px #DDD;
+    border-radius: 10px;
+    padding: 2%;
+    margin-bottom: 0.5em;
+    width: 48%
+}
+*/
+#contenedor_submit {
+    box-shadow: 1px 1px 1px 1px #DDD;
+    border-radius: 10px;
+    padding: 0.5%;
+    width: 48%
+}
+
+.titulo_pregunta {
+    text-align: center;
+}
+
+.contenedor_pregunta {
+    background-color: #FFF;
+    border-radius: 8px;
+    box-shadow: -1px -1px 2px 2px #DDD;
+    margin: 0.25em auto;
+    padding: 1%;
+    width: 50%;
+    transition-duration: 0.5s;
+}
+
+.contenedor_draggable {
+    padding: 10px;
+}
+
+.contenedor_draggable:focus {
+    box-shadow: -2px -2px 5px 5px #DDD;
+}
+
+#preguntas {
+    margin: 32px auto;
+    width: 50%;
+}

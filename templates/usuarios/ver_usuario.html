@@ -1,0 +1,110 @@
+
+{% if messages %}
+    <div class="mensaje_advertencia">
+    {% for message in messages %}
+        <div><b>Advertencia: </b>{{message}}</div>
+    {% endfor %}
+    </div>
+{% endif %}
+{% if usuario %}
+<div class="contenedor_tabla">
+    {% if usuario.rol == 'root' %}
+    <h2>Perfil Root: <b>{{usuario.id_usuario|escape}}</b></h2>
+    {% elif usuario.rol == 'administrador' %}
+    <h2>Perfil Administrador: <b>{{usuario.id_usuario|escape}}</b></h2>
+    {% elif usuario.rol == 'psicologo' %}
+    <h2>Perfil Psicólogo: <b>{{usuario.id_usuario|escape}}</b></h2>
+    {% elif usuario.rol == 'estudiante' %}
+    <h2>Perfil Estudiante: <b>{{usuario.id_usuario|escape}}</b></h2>
+    {% endif %}
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Correo:</b></span></div>
+        <div class="valor"><span>{{usuario.id_usuario}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Rol:</b></span></div>
+        <div class="valor"><span>{{usuario.rol}}</span></div>
+    </div>
+    {% if estudiante %}
+    {% if not estudiante.grupo == None %}
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Institución:</b></span></div>
+        <div class="valor"><span>{{estudiante.grupo.institucion}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Grupo:</b></span></div>
+        <div class="valor"><span>{{estudiante.grupo}}</span></div>
+    </div>
+    {% else %}
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Institución:</b></span></div>
+        <div class="valor"><span>No pertenece a ninguna <b>Institución</b></span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Grupo:</b></span></div>
+        <div class="valor"><span>No pertenece a ningún <b>Grupo</b></span></div>
+    </div>
+    {% endif %}
+    {% endif %}
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Tipo de Identificación:</b></span></div>
+        <div class="valor"><span>{{usuario.tipo_identificacion}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Identificación:</b></span></div>
+        <div class="valor"><span>{{usuario.identificacion}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Nombres:</b></span></div>
+        <div class="valor"><span>{{usuario.nombres}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Apellidos:</b></span></div>
+        <div class="valor"><span>{{usuario.apellidos}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Fecha de Nacimiento:</b></span></div>
+        <div class="valor"><span>{{usuario.fecha_nacimiento}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Género:</b></span></div>
+        <div class="valor"><span>{{usuario.genero}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Dirección:</b></span></div>
+        <div class="valor"><span>{{usuario.direccion}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Teléfono:</b></span></div>
+        <div class="valor"><span>{{usuario.telefono}}</span></div>
+    </div>
+    <div class="contenedor_fila">
+        <div class="clave"><span><b>Opciones:</b></span></div>
+        <div class="valor">
+            {% if rol == 'root' %}
+                {% if not usuario.rol == 'root' %}
+                <a id="boton-editar" class="boton" href="{% url 'root:root_editar_usuario' usuario.id_usuario.id %}">Editar</a>
+                <a id="boton-eliminar" class="boton" href="{% url 'root:root_eliminar_usuario' usuario.id_usuario.id %}">Eliminar</a>
+                {% else %}
+                <a id="boton-editar" class="boton" href="{% url 'root:root_editar_perfil' %}">Editar</a>
+                <a href="{% url 'usuarios:cambiar_password' %}">Cambiar Contraseña</a>
+                {% endif %}
+            {% elif rol == 'administrador' %}
+                {% if not usuario.rol == 'administrador' %}
+                <a id="boton-editar" class="boton" href="{% url 'usuarios:admin_editar_usuario' usuario.id_usuario.id %}">Editar</a>
+                <a  id="boton-eliminar" class="boton" href="{% url 'usuarios:admin_eliminar_usuario' usuario.id_usuario.id %}">Eliminar</a>
+                {% else %}
+                <a id="boton-editar" class="boton" href="{% url 'usuarios:admin_editar_perfil' %}">Editar</a>
+                <a href="{% url 'usuarios:cambiar_password' %}">Cambiar Contraseña</a>
+                {% endif %}
+            {% elif rol == 'psicologo' %}
+            <a id="boton-editar" class="boton" href="{% url 'usuarios:psicologo_editar_perfil' %}">Editar</a>
+            <a href="{% url 'usuarios:cambiar_password' %}">Cambiar Contraseña</a>
+            {% elif rol == 'estudiante' %}
+            <a id="boton-editar" class="boton" href="{% url 'estudiante:editar_perfil' %}">Editar</a>
+            <a href="{% url 'usuarios:cambiar_password' %}">Cambiar Contraseña</a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+</div>

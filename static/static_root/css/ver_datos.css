@@ -1,0 +1,62 @@
+
+h2 {
+	background-color: #555;
+        border-radius: 5px;
+	color: #FFF;
+        padding: 1%;
+}
+
+.contenedor_tabla {
+	background-color: #FFF;
+        border-radius: 8px;
+        box-shadow: 1px 1px 2px 2px #DDD;
+	margin: 32px auto;
+	padding: 1%;
+	width: 50%;
+}
+
+.contenedor_fila {
+	overflow: hidden;
+	margin: 10px auto;
+	width: 80%;
+}
+
+.clave, .valor {
+	float: left;
+	width: 50%;
+}
+
+.mensaje_advertencia {
+	background-color: #FFF;
+        border-radius: 10px;
+        border: 1px solid #e39d04;
+        color: #e39d04;
+    margin: 32px auto;
+    padding: 0.5%;
+    width: 50%;
+}
+
+.boton {
+	border-radius: 20px;
+	color: #FFF;
+	font-size: 1.1em;
+	height: 50px;
+	padding: 5%;
+	text-decoration: none;
+}
+
+#boton-editar {
+	background-color: #269b1a;
+}
+
+#boton-editar:hover {
+	background-color: #2cb51e;
+}
+
+#boton-eliminar {
+	background-color: #e40f19;
+}
+
+#boton-eliminar:hover {
+	background-color: #f60404;
+}

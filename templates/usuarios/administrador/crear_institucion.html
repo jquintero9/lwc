@@ -1,0 +1,18 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+{% endblock %}
+{% block title %}Crear Institución - {{user.username|escape}}{% endblock %}
+
+{% block content %}
+<div id="contenedor-registrarse">
+<h2 class="titulo-formulario">Crear Institución</h2>
+<form method="POST" action="">{% csrf_token %}
+{% include 'usuarios/administrador/formulario_institucion.html' %}
+	<div class="contenedor-input">
+		<input class="input" type="submit" value="Crear" />
+	</div>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% if messages %}
+<div class="mensaje_exito">
+    {% for message in messages %}
+    <div><b>Exito: </b>{{message}}</div>
+</div>
+    {% endfor %}
+{% endif %}
+{% if usuarios %}
+<table>
+    <thead>
+        <tr>
+        <th>Correo</th>
+        <th>Identificación</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Teléfono</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for usuario in usuarios %}
+        <tr>
+        {% if rol == 'root' %}
+        <td><a href="{% url 'root:root_perfil_usuario' usuario.id_usuario.id %}">{{usuario.id_usuario.username|escape}}</a></td>
+        {% elif rol == 'administrador' %}
+        <td><a href="{% url 'usuarios:admin_perfil_usuario' usuario.id_usuario.id %}">{{usuario.id_usuario.username|escape}}</a></td>
+        {% else %}
+        <td><a href="#">{{usuario.id_usuario.username|escape}}</a></td>
+        {% endif %}
+        <td>{{usuario.identificacion|escape}}</td>
+        <td>{{usuario.nombres|escape}}</td>
+        <td>{{usuario.apellidos|escape}}</td>
+        <td>{{usuario.telefono}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="lista_vacia">
+        <h2>La lista de usuarios <b>{{nombre_rol}}</b> está vacia.</h2>
+</div>
+{% endif %}

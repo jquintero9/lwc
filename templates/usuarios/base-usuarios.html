@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base-usuarios.css' %}" />
+    {% block estilos %}
+    {% endblock %}
+    <!--<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tablas.css' %}" />-->
+</head>
+<body>
+    <header>
+        <div class="contenedor-header">
+            <div class="logo">
+                <h1>PSYCHOLOGY TEST</h1>
+                {% block infousuario %}
+                {% endblock %}
+            </div>
+            <nav class="nav-header">
+               <ul>
+                    {% block useroptions %}
+                    {% endblock %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div id="contenido">
+    {% block content %}
+    {% endblock %}
+    </div>
+    
+</body>
+</html>

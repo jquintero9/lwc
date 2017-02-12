@@ -1,0 +1,30 @@
+{% extends 'usuarios/base-usuarios.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/mensajes.css' %}">
+{% endblock %}
+{% block title %}Home - Root{% endblock %}
+
+{% block infousuario %}
+<p>Bienvenido:  <b>{{user}}</b></p>
+<p>Rol: Root</p>
+{% endblock %}
+
+{% block useroptions %}
+<li><a class="a-opcion" href="{% url 'root:root_crear_usuario' %}">Crear Usuario</a></li>
+<li><a class="a-opcion" href="{% url 'root:lista_administradores' %}">Administradores</a></li>
+<li><a class="a-opcion" href="{% url 'root:root_lista_psicologos' %}">Psicólogos</a></li>
+<li><a class="a-opcion" href="{% url 'root:root_lista_estudiantes' %}">Estudiantes</a></li>
+<li class="drop-button">
+    <a href="#" class="a-drop-button">Opciones</a>
+    <div class="drop-content">
+        <a class="a-drop" href="{% url 'root:root_perfil' %}">Ver Perfil</a>
+        <a class="a-drop" href="{% url 'usuarios:cerrar_sesion' %}">Cerrar Sesión</a>
+    </div>
+</li>
+{% endblock %}
+
+
+{% block content %}
+{% include 'usuarios/mensajes.html' %}
+{% endblock %}

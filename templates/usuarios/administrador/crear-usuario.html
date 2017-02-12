@@ -1,0 +1,34 @@
+{% extends 'usuarios/administrador/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/formularios.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div id="contenedor-registrarse">
+   <h2 class="titulo-formulario">Crear Usuario</h2>
+    <form id="form-registrarse" action="" method="post"> {% csrf_token %}
+    <div id="contenedor-botones-rol">
+            {% block botonrol %}
+            {% if boton_activo == 'estudiante' %}
+            <input type="hidden" name="rol" value="estudiante" />
+            <a id="boton-rol-psicologo" class="boton_rol" href="?usuario=psicologo">Psicólogo</a>
+            <a id="boton-rol-estudiante" class="boton_rol boton_activo" href="?usuario=estudiante">Estudiante</a>
+            {% else %}
+            <input type="hidden" name="rol" value="psicologo" />
+            <a id="boton-rol-psicologo" class="boton_rol boton_activo" href="?usuario=psicologo">Psicólogo</a>
+            <a id="boton-rol-estudiante" class="boton_rol" href="?usuario=estudiante">Estudiante</a>
+            {% endif %}
+            {% endblock %}
+        </div>
+        {% if form_usuario.rol.errors %}
+            <div class="mensaje-formulario">
+            {% for error in form_usuario.rol.errors %}
+                <b>Error en el campo Rol: </b> {{error|escape}}
+            {% endfor %}
+            </div>
+        {% endif %}
+	{% include 'form-registro.html' %}
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'usuarios/psicologo/home.html' %}
+{% load staticfiles %}
+{% block estilos %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/ver_datos.css' %}">
+{% endblock %}
+{% block title %}Perfil Usuario - {{user}}{% endblock %}
+
+{% block content %}
+{% include 'usuarios/ver_usuario.html' %}
+{% endblock %}
