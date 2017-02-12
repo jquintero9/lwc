@@ -1,0 +1,20 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+	font-size: 16px;
+<<<<<<< HEAD
+	background-color: yellow;
+	color: #FFF;
+	text-align: center;
+}
+=======
+	background-color: red;
+	color: #FFF;
+	text-align: center;
+}
+>>>>>>> 1d5e7cdff358d75ed94a129b26a98029ac502f99
